@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import usersRoutes from './routes/users.js';
+import router from './routes/users.js';
 const app =express();
 const PORT =5000;
 
@@ -11,6 +12,10 @@ app.use('/users', usersRoutes);
 app.get('/',(req, res) => {
     console.log('[Test]!');
     res.send('hello this is HomePage')
+
+});
+
+router.post('/', (req, res) =>{
 
 });
 
