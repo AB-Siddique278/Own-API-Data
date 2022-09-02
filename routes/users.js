@@ -5,7 +5,7 @@ const router = express.Router();
 
 let users = [
     {
-        grnder: "male",
+        gender: "male",
         name: "Abu Bakar siddique",
         contact: "01789848646",
         address: "Dhaka Bangladesh",
@@ -14,7 +14,7 @@ let users = [
     
     },
     {
-        grnder: "male",
+        gender: "male",
         name: "Hridoy",
         contact: "01789848646",
         address: "Barisal Bangladesh",
@@ -59,6 +59,38 @@ router.delete('/:id', (req, res) =>{
     const { id } = req.params;
     users= users.filter((user) => user.id !== id);
     res.send(`user with the id ${id} deleted form the database`);
+
+
+});
+
+router.patch('/:id', (req, res) =>{
+    const { id } = req.params;
+
+    const { gender, name, contact, address,photoUrl }= req.body
+    const user = users.find((user) => user.id ==id);
+
+    if(gender){
+        user.gender=gender;
+    }
+
+    if(name){
+        user.name=name;
+    }
+
+    if(contact){
+        user.contact=contact;
+    }
+
+    if(address){
+        user.address=address;
+    }
+
+    if(photoUrl){
+        user.photoUrl=photoUrl;
+    }
+
+    res.send(`User with the id ${id} has been update`);
+    
 
 
 });
