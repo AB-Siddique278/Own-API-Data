@@ -6,25 +6,23 @@ const router = express.Router();
 
 
 
-
-
-
-
-
 //all routes in here are starting with/all
-router.get('/', getusers);
+router.get('/all/', getusers);
+
+
+router.get('/random/', getusers);
 
 
 
 //push
-router.post('/', createUser);
+router.post('/save/', createUser);
 
 //get data use in id
 router.get('/:id', getUser);
 
-router.delete('/:id', deleteUser);
+router.delete('/delete/:id', deleteUser);
 
-router.patch('/:id', updateUser);
+router.patch('/up/:id', updateUser);
 
 
 
